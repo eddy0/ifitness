@@ -9,7 +9,7 @@ import History from './components/history'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import {white, purple} from './utils/colors'
 import  { FontAwesome, Ionicons} from  '@expo/vector-icons'
-
+import Live from './components/live'
 
 const Tabs = createBottomTabNavigator({
     History: {
@@ -25,7 +25,16 @@ const Tabs = createBottomTabNavigator({
                 tabBarLabel: 'AddEntry',
                 tabBarIcon: ({tintColor}) => <FontAwesome name='plus-square' size={30} color={tintColor}/>
             },
-        }}, {
+        },
+    Live: {
+        screen: Live,
+        navigationOptions: {
+            tabBarLabel: 'Live',
+            tabBarIcon: ({tintColor}) => <Ionicons name='ios-speedometer' size={30} color={tintColor}/>
+        },
+    },
+
+        }, {
     tabBarOptions: {
         activeTintColor: Platform.OS === 'ios' ? purple: white,
         style: {
